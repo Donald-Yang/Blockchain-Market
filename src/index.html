@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Decentralized Marketplace</title>
+
+    <!-- Bootstrap 4 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Toastr CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
+    <!-- Styles -->
+    <style>
+        body { padding-top: 50px; background-color: #f8f9fa; }
+        .item-card { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; border: 1px solid #ddd; }
+        #list-container { margin-top: 30px; }
+    </style>
+</head>
+<body>
+
+    <div id="overlay" style="
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(128, 128, 128, 0.97);
+        z-index: 9999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.5rem;
+        color: white;
+        user-select: none;">
+        Please connect your MetaMask wallet...
+    </div>
+
+    <div class="container">
+        <h1 class="text-center">Blockchain Marketplace</h1>
+        <hr>
+
+        <div class="row">
+            <!-- Registration Form -->
+            <div class="col-md-6">
+                <div class="card p-4">
+                    <h3>Register With Code to Sell Products</h3>
+                    <div class="form-group">
+                        <input type="text" id="registrationCode" class="form-control" placeholder="Registration Code">
+                    </div>
+                    <button id="register" class="btn btn-primary btn-block">Register</button>
+                </div>
+            </div>
+
+            <!-- Sell Product Form -->
+            <div class="col-md-6">
+                <div class="card p-4">
+                    <h3>List Your Product for Sale</h3>
+                    <div class="form-group">
+                        <input type="text" id="productName" class="form-control" placeholder="Product Name">
+                    </div>
+                    <div class="form-group">
+                        <input type="number" min="1" id="productPrice" class="form-control" placeholder="Price (Wei)">
+                    </div>
+                    <button id="sell-product" class="btn btn-primary btn-block">List Product</button>
+                </div>
+            </div>
+
+            <!-- Confirm Delivery Form -->
+            <div class="col-md-6">
+                <div class="card p-4">
+                    <h3>Confirm Delivery</h3>
+                    <div class="form-group">
+                        <input type="number" id="productID" class="form-control" placeholder="Product ID">
+                    </div>
+                    <button id="confirm-delivery" class="btn btn-success btn-block">Confirm Received</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dynamic Product List -->
+        <div id="list-container" class="row">
+                <h3>Available Products</h3>
+            <!-- Products will be injected here by app.js -->
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.2.0/dist/ethers.umd.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
